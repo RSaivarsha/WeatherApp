@@ -27,7 +27,7 @@ A Flask-based weather application that allows users to:
 ## Demo
 
 - **Video Demo:** [Link to your demo video here](https://drive.google.com/file/d/1FE7r7UyP81YjAomk-r8VfVbhxdMxdVDC/view?usp=sharing)
-- **You can test the app here:** [My Weather App](https://myapp.pythonanywhere.com/)
+- **You can test the app here:** [My Weather App](https://realtimeweatherapp.pythonanywhere.com/)
 
 ---
 
