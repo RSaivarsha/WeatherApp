@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Weather Request Detail</h2>
+<p><strong>Location:</strong> {{ weather_req.location }}</p>
+<p><strong>Date Range:</strong> {{ weather_req.start_date }} to {{ weather_req.end_date }}</p>
+<p><strong>Created At:</strong> {{ weather_req.created_at }}</p>
+
+<h3>Forecast Details</h3>
+{% if forecast_data %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Max Temp (°C)</th>
+        <th>Min Temp (°C)</th>
+        <th>Condition</th>
+        <th>Humidity (%)</th>
+        <th>Wind (kph)</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for day in forecast_data %}
+      <tr>
+        <td>{{ day.date }}</td>
+        <td>{{ day.maxtemp_c }}</td>
+        <td>{{ day.mintemp_c }}</td>
+        <td>{{ day.condition }}</td>
+        <td>{{ day.avghumidity }}</td>
+        <td>{{ day.maxwind_kph }}</td>
+        
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No forecast data available.</p>
+{% endif %}
+
+<p>
+  <a href="{{ youtube_search_url }}" target="_blank" class="btn btn-info">YouTube Videos</a>
+  <a href="{{ google_maps_url }}" target="_blank" class="btn btn-info">View on Google Maps</a>
+</p>
+<a href="{{ url_for('requestinfo') }}" class="btn btn-secondary">Back</a>
+{% endblock %}

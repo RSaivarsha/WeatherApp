@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Update Weather Request</h2>
+<form method="POST">
+  <div class="form-group">
+    <label for="location">Location:</label>
+    <input type="text" class="form-control" name="location" value="{{ weather_req.location }}" required>
+  </div>
+  <div class="form-group">
+    <label for="start_date">Start Date (YYYY-MM-DD):</label>
+    <input type="date" class="form-control" name="start_date" value="{{ weather_req.start_date }}" required>
+  </div>
+  <div class="form-group">
+    <label for="end_date">End Date (YYYY-MM-DD):</label>
+    <input type="date" class="form-control" name="end_date" value="{{ weather_req.end_date }}" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
+<form action="{{ url_for('delete', request_id=weather_req.id) }}" method="post" style="margin-top:10px;">
+    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+</form>
+{% endblock %}
