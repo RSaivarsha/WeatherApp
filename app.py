@@ -10,11 +10,11 @@ import json
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///weather.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'an1203959irkjp95986-4'  # Replace with a secure key
+app.config['SECRET_KEY'] = 'YOUR SECRET KEY'  # Replace with a secure key
 db = SQLAlchemy(app)
 
 # Replace with your actual WeatherAPI key
-WEATHER_API_KEY = '9a02e4f72dde48f49d2175930251203'
+WEATHER_API_KEY = 'YOUR WEATHER_API_KEY'
 BASE_URL = "http://api.weatherapi.com/v1"
 
 # Database model for storing weather requests
@@ -111,7 +111,6 @@ def create():
     else:
         return render_template('create.html', name = "Saivarsha Raju")
 
-# --- New Route: Request Info ("/requestinfo") ---
 @app.route('/requestinfo')
 def requestinfo():
     """Display a table of all saved weather requests."""
